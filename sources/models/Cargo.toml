@@ -1,0 +1,27 @@
+[package]
+name = "models"
+version = "0.1.0"
+authors = ["Tom Kirchner <tjk@amazon.com>"]
+license = "Apache-2.0 OR MIT"
+edition = "2018"
+publish = false
+build = "build.rs"
+
+[dependencies]
+base64 = "0.11"
+lazy_static = "1.2"
+model-derive = { path = "model-derive" }
+regex = "1.1"
+serde = { version = "1.0", features = ["derive"] }
+snafu = "0.6"
+toml = "0.5"
+url = "2.1"
+
+[build-dependencies]
+cargo-readme = "3.1"
+
+[lib]
+# We're picking the current *model* with build.rs, so users shouldn't think
+# about importing *models* (plural), just the one current model.
+name = "model"
+path = "src/lib.rs"
