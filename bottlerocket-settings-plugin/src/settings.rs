@@ -171,3 +171,62 @@ where
         Err(e) => Err(RBoxError::new(e)),
     }
 }
+
+// =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
+
+/// BottlerocketSettings is a wrapper type for the provider wrapper type. It's the preferred way
+/// for the host program to interact with the plugin. It provides Serialize, Deserialize, and
+/// Default impls that handle some of the quirks that arise when dealing directly with the
+/// provider.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct BottlerocketSettings(BottlerocketSettingsProvider);
+
+/// Serialize impl that goes through an intermediate JSON value so that type data is available to
+/// the host program.
+impl Serialize for BottlerocketSettings {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+        S: Serializer,
+    {
+        // First serialize the wrapped type to a string, using the plugin's impl.
+        let json_string = serde_json::to_string(&self.0).map_err(serde::ser::Error::custom)?;
+
+        // Now turn the string into a JSON value, which is a type that the host program can
+        // introspect.
+        let json_value =
+            serde_json::from_str::<JsonValue>(&json_string).map_err(serde::ser::Error::custom)?;
+
+        // Pass the JSON value into the provided serializer.
+        json_value.serialize(serializer)
+    }
+}
+
+/// Deserialize impl that goes through an intermediate JSON value so that type data is available to
+/// the host program.
+impl<'de> Deserialize<'de> for BottlerocketSettings {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        // First deserialize into a JSON value using the provided deserializer, which is a type
+        // that the host program knows how to construct.
+        let json_value = JsonValue::deserialize(deserializer)?;
+
+        // Now turn the JSON value back into a JSON string to send across the FFI boundary.
+        let json_string = serde_json::to_string(&json_value).map_err(serde::de::Error::custom)?;
+
+        // Deserialize the wrapped type from the JSON string using the plugin's impl.
+        Ok(Self(
+            serde_json::from_str::<BottlerocketSettingsProvider>(&json_string)
+                .map_err(serde::de::Error::custom)?,
+        ))
+    }
+}
+
+/// Default impl that calls the custom defaults trait on the provider wrapper type.
+impl Default for BottlerocketSettings {
+    fn default() -> Self {
+        let defaults = BottlerocketSettingsProvider::defaults();
+        Self(defaults)
+    }
+}
