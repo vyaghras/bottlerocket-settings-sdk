@@ -1,0 +1,17 @@
+[package]
+name = "bottlerocket-defaults-helper"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/bottlerocket-os/bottlerocket-settings-sdk"
+readme = "../README.md"
+authors = [
+  "Tom Kirchner <tjk@amazon.com>",
+  "Matt Briggs <brigmatt@amazon.com>",
+  "Ben Cressey <bcressey@amazon.com>",
+]
+
+[dependencies]
+snafu = "0.8"
+toml = "0.8"
+walkdir = "2"

@@ -26,8 +26,3 @@ exceptions = [
 # Deny multiple versions or wildcard dependencies.
 multiple-versions = "deny"
 wildcards = "deny"
-
-skip = [
-    # snafu is using an older version of syn   
-    { name = "syn", version = "1" },
-]
