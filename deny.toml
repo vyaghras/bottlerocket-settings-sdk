@@ -11,14 +11,15 @@ allow = [
     "BSD-3-Clause",
     "BSL-1.0",
     # "CC0-1.0",
-    # "ISC",
+    "ISC",
     "MIT",
     # "OpenSSL",
     # "Unlicense",
-    # "Zlib",
+    "Zlib",
 ]
 
 exceptions = [
+    { name = "generational-arena", allow = ["MPL-2.0"] },
     { name = "unicode-ident", allow = ["MIT", "Apache-2.0", "Unicode-DFS-2016"] },
 ]
 
@@ -26,3 +27,8 @@ exceptions = [
 # Deny multiple versions or wildcard dependencies.
 multiple-versions = "deny"
 wildcards = "deny"
+
+skip = [
+    # abi_stable is using an older version of syn
+    { name = "syn", version = "1" },
+]
