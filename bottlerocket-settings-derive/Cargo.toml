@@ -1,0 +1,16 @@
+[package]
+name = "bottlerocket-settings-derive"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0 OR MIT"
+repository = "https://github.com/bottlerocket-os/bottlerocket-settings-sdk"
+readme = "../README.md"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+darling = "0.20.8"
+proc-macro2 = "1.0.81"
+quote = "1.0.36"
+syn = "2.0.60"

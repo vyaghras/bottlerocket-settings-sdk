@@ -5,4 +5,6 @@ members = [
     "bottlerocket-settings-sdk",
     "bottlerocket-template-helper",
     "bottlerocket-defaults-helper",
+    "bottlerocket-settings-plugin",
+    "bottlerocket-settings-derive",
 ]
