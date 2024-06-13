@@ -1,7 +1,7 @@
+use bottlerocket_model_derive::model;
+use bottlerocket_modeled_types::SingleLineString;
 ///Settings related to CloudFormation signaling
 use bottlerocket_settings_sdk::{GenerateResult, SettingsModel};
-use model_derive::model;
-use modeled_types::SingleLineString;
 use std::convert::Infallible;
 
 #[model(impl_default = true)]

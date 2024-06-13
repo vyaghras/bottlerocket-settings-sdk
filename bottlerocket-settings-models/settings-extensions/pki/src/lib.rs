@@ -1,7 +1,7 @@
+use bottlerocket_model_derive::model;
+use bottlerocket_modeled_types::{Identifier, PemCertificateString};
 /// Settings related to Custom CA Certificates.
 use bottlerocket_settings_sdk::{GenerateResult, SettingsModel};
-use model_derive::model;
-use modeled_types::{Identifier, PemCertificateString};
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use std::{collections::HashMap, convert::Infallible};
 
