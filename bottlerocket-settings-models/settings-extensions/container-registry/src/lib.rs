@@ -1,6 +1,6 @@
-/// The container-registry settings can be used to configure settings related to container
-/// registries, including credentials for logging into a registry, or mirrors to use when
-/// pulling from a registry.
+//! The container-registry settings can be used to configure settings related to container
+//! registries, including credentials for logging into a registry, or mirrors to use when
+//! pulling from a registry.
 mod de;
 
 use crate::de::deserialize_mirrors;

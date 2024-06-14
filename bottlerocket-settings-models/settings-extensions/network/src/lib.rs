@@ -1,6 +1,6 @@
+//! Settings related to networking configuration.
 use bottlerocket_model_derive::model;
 use bottlerocket_modeled_types::{EtcHostsEntries, SingleLineString, Url, ValidLinuxHostname};
-/// Settings related to networking configuration.
 use bottlerocket_settings_sdk::{GenerateResult, SettingsModel};
 use std::convert::Infallible;
 

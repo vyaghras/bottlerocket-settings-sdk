@@ -1,5 +1,5 @@
+//! Settings related to Container Runtime
 use bottlerocket_model_derive::model;
-///Settings related to Container Runtime
 use bottlerocket_settings_sdk::{GenerateResult, SettingsModel};
 use std::convert::Infallible;
 

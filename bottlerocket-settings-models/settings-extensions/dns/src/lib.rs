@@ -1,6 +1,6 @@
+//! Settings related to custom DNS settings
 use bottlerocket_model_derive::model;
 use bottlerocket_modeled_types::ValidLinuxHostname;
-/// Settings related to custom DNS settings
 use bottlerocket_settings_sdk::{GenerateResult, SettingsModel};
 use std::convert::Infallible;
 use std::net::IpAddr;

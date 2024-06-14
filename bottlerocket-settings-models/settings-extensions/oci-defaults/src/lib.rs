@@ -1,4 +1,4 @@
-/// Settings related to orchestrated containers for overriding the OCI runtime spec defaults
+//! Settings related to orchestrated containers for overriding the OCI runtime spec defaults
 mod de;
 
 use crate::de::deserialize_limit;

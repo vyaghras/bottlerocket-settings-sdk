@@ -1,5 +1,5 @@
-/// The updates settings can be used to configure settings related to updates, e.g. the
-/// seed that determines in which wave the instance will update, etc.
+//! The updates settings can be used to configure settings related to updates, e.g. the
+//! seed that determines in which wave the instance will update, etc.
 pub mod generate;
 
 use bottlerocket_model_derive::model;

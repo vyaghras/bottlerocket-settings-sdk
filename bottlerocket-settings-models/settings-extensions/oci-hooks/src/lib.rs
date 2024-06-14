@@ -1,5 +1,5 @@
+//! Settings related to host-provided OCI Hooks
 use bottlerocket_model_derive::model;
-/// Settings related to host-provided OCI Hooks
 use bottlerocket_settings_sdk::{GenerateResult, SettingsModel};
 use std::convert::Infallible;
 

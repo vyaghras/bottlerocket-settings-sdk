@@ -1,5 +1,5 @@
+//! Settings related to auto scaling groups.
 use bottlerocket_model_derive::model;
-/// Settings related to auto scaling groups.
 use bottlerocket_settings_sdk::{GenerateResult, SettingsModel};
 use std::convert::Infallible;
 
