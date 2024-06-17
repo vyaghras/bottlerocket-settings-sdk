@@ -1,0 +1,15 @@
+[package]
+name = "settings-extension-network"
+version = "0.1.0"
+authors = ["Gaurav Sharma <mgsharm@amazon.com>"]
+license = "Apache-2.0 OR MIT"
+edition = "2021"
+publish = false
+
+[dependencies]
+bottlerocket-modeled-types = { path = "../../modeled-types", version = "0.1" }
+bottlerocket-model-derive = { path = "../../model-derive", version = "0.1" }
+bottlerocket-settings-sdk = { path = "../../../bottlerocket-settings-sdk", version = "0.1" }
+env_logger = "0.10"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
