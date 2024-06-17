@@ -15,7 +15,7 @@ members = [
     "bottlerocket-settings-models/modeled-types",
     "bottlerocket-settings-models/scalar",
     "bottlerocket-settings-models/scalar-derive",
-    "bottlerocket-settings-models/string_impls_for",
+    "bottlerocket-settings-models/string-impls-for",
 
     # Settings extensions
     # These will eventually live in the kit workspaces that own the related software
