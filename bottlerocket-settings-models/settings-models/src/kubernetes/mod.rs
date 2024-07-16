@@ -3,11 +3,13 @@ mod de;
 
 use self::de::deserialize_node_taints;
 use bottlerocket_model_derive::model;
-use bottlerocket_modeled_types::KubernetesCPUManagerPolicyOption;
 use bottlerocket_modeled_types::KubernetesEvictionKey;
 use bottlerocket_modeled_types::KubernetesMemoryManagerPolicy;
 use bottlerocket_modeled_types::KubernetesMemoryReservation;
 use bottlerocket_modeled_types::NonNegativeInteger;
+use bottlerocket_modeled_types::{
+    KubernetesCPUManagerPolicyOption, KubernetesHostnameOverrideSource,
+};
 use std::collections::HashMap;
 use std::net::IpAddr;
 
@@ -94,6 +96,7 @@ pub struct KubernetesSettingsV1 {
     pod_infra_container_image: SingleLineString,
     // Generated in `aws-k8s-1.26*` variants only
     hostname_override: ValidLinuxHostname,
+    hostname_override_source: KubernetesHostnameOverrideSource,
     // Generated in `k8s-1.25+` variants only
     seccomp_default: bool,
 }
