@@ -1411,3 +1411,32 @@ mod test_kubernetes_memory_manager_policy {
         }
     }
 }
+
+/// KubernetesHostnameOverrideSource represents a string that is a valid hostname override source.
+/// This is used to configure different node name modes for Kubernetes nodes.
+#[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize, Scalar)]
+pub enum KubernetesHostnameOverrideSource {
+    #[serde(rename = "private-dns-name")]
+    PrivateDNSName,
+    #[serde(rename = "instance-id")]
+    InstanceID,
+}
+
+#[cfg(test)]
+mod test_hostname_override_source {
+    use crate::KubernetesHostnameOverrideSource;
+
+    #[test]
+    fn good_override() {
+        for ok in &["private-dns-name", "instance-id"] {
+            KubernetesHostnameOverrideSource::try_from(*ok).unwrap();
+        }
+    }
+
+    #[test]
+    fn bad_override() {
+        for err in &["", "invalid", &"a".repeat(64)] {
+            KubernetesHostnameOverrideSource::try_from(*err).unwrap_err();
+        }
+    }
+}
