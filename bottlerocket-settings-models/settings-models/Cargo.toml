@@ -10,31 +10,31 @@ exclude = ["README.md"]
 
 [dependencies]
 libc = "0.2"
-bottlerocket-model-derive = { path = "../model-derive", version = "0.1" }
-bottlerocket-modeled-types = { path = "../modeled-types", version = "0.1" }
-bottlerocket-scalar = { path = "../scalar", version = "0.1" }
-bottlerocket-scalar-derive = { path = "../scalar-derive", version = "0.1" }
-bottlerocket-string-impls-for = { path = "../string-impls-for", version = "0.1" }
+bottlerocket-model-derive.workspace = true
+bottlerocket-modeled-types.workspace = true
+bottlerocket-scalar.workspace = true
+bottlerocket-scalar-derive.workspace = true
+bottlerocket-string-impls-for.workspace = true
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 toml = "0.8"
 
 # settings extensions
-settings-extension-autoscaling = { path = "../settings-extensions/autoscaling", version = "0.1" }
-settings-extension-aws = { path = "../settings-extensions/aws", version = "0.1" }
-settings-extension-bootstrap-containers = { path = "../settings-extensions/bootstrap-containers", version = "0.1" }
-settings-extension-cloudformation = { path = "../settings-extensions/cloudformation", version = "0.1" }
-settings-extension-container-registry = { path = "../settings-extensions/container-registry", version = "0.1" }
-settings-extension-container-runtime = { path = "../settings-extensions/container-runtime", version = "0.1" }
-settings-extension-dns = { path = "../settings-extensions/dns", version = "0.1" }
-settings-extension-ecs = { path = "../settings-extensions/ecs", version = "0.1" }
-settings-extension-host-containers = { path = "../settings-extensions/host-containers", version = "0.1" }
-settings-extension-kernel = { path = "../settings-extensions/kernel", version = "0.1" }
-settings-extension-metrics = { path = "../settings-extensions/metrics", version = "0.1" }
-settings-extension-motd = { path = "../settings-extensions/motd", version = "0.1" }
-settings-extension-network = { path = "../settings-extensions/network", version = "0.1" }
-settings-extension-ntp = { path = "../settings-extensions/ntp", version = "0.1" }
-settings-extension-oci-defaults = { path = "../settings-extensions/oci-defaults", version = "0.1" }
-settings-extension-oci-hooks = { path = "../settings-extensions/oci-hooks", version = "0.1" }
-settings-extension-pki = { path = "../settings-extensions/pki", version = "0.1" }
-settings-extension-updates = { path = "../settings-extensions/updates", version = "0.1" }
+settings-extension-autoscaling.workspace = true
+settings-extension-aws.workspace = true
+settings-extension-bootstrap-containers.workspace = true
+settings-extension-cloudformation.workspace = true
+settings-extension-container-registry.workspace = true
+settings-extension-container-runtime.workspace = true
+settings-extension-dns.workspace = true
+settings-extension-ecs.workspace = true
+settings-extension-host-containers.workspace = true
+settings-extension-kernel.workspace = true
+settings-extension-metrics.workspace = true
+settings-extension-motd.workspace = true
+settings-extension-network.workspace = true
+settings-extension-ntp.workspace = true
+settings-extension-oci-defaults.workspace = true
+settings-extension-oci-hooks.workspace = true
+settings-extension-pki.workspace = true
+settings-extension-updates.workspace = true
