@@ -7,8 +7,8 @@ edition = "2021"
 publish = false
 
 [dependencies]
-bottlerocket-settings-sdk = { path = "../../../bottlerocket-settings-sdk", version = "0.1" }
-bottlerocket-string-impls-for = { version = "0.1", path = "../../string-impls-for" }
+bottlerocket-settings-sdk.workspace = true
+bottlerocket-string-impls-for.workspace = true
 env_logger = "0.10"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"

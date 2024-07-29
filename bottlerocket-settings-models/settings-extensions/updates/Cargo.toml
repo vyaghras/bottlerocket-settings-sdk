@@ -7,9 +7,9 @@ edition = "2021"
 publish = false
 
 [dependencies]
-bottlerocket-settings-sdk = { path = "../../../bottlerocket-settings-sdk", version = "0.1" }
-bottlerocket-modeled-types = { path = "../../modeled-types", version = "0.1" }
-bottlerocket-model-derive = { path = "../../model-derive", version = "0.1" }
+bottlerocket-settings-sdk.workspace = true
+bottlerocket-modeled-types.workspace = true
+bottlerocket-model-derive.workspace = true
 env_logger = "0.10"
 rand = "0.8"
 serde = { version = "1", features = ["derive"] }

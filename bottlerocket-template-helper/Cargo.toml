@@ -22,4 +22,4 @@ syn = { version = "2", default-features = false, features = ["full", "parsing", 
 
 [dev-dependencies]
 anyhow = "1"
-bottlerocket-settings-sdk = { path = "../bottlerocket-settings-sdk", version = "0.1.0-alpha" }
+bottlerocket-settings-sdk.workspace = true
