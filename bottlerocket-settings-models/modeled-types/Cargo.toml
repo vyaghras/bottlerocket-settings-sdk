@@ -12,6 +12,7 @@ exclude = ["README.md"]
 bottlerocket-scalar.workspace = true
 bottlerocket-scalar-derive.workspace = true
 bottlerocket-string-impls-for.workspace = true
+bottlerocket-model-derive.workspace = true
 base64 = "0.21"
 indexmap = { version = "2", features = ["serde"] }
 lazy_static = "1"

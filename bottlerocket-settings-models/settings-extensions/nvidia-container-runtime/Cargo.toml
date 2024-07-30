@@ -1,0 +1,15 @@
+[package]
+name = "settings-extension-nvidia-container-runtime"
+version = "0.1.0"
+authors = ["Monirul Islam <monirulu@amazon.com>"]
+license = "Apache-2.0 OR MIT"
+edition = "2021"
+publish = false
+
+[dependencies]
+bottlerocket-modeled-types.workspace = true
+bottlerocket-model-derive.workspace = true
+bottlerocket-settings-sdk.workspace = true
+env_logger = "0.10"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

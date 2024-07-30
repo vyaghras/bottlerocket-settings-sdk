@@ -3,6 +3,8 @@ mod de;
 
 use self::de::deserialize_node_taints;
 use bottlerocket_model_derive::model;
+#[cfg(feature = "nvidia-device-plugin")]
+use bottlerocket_modeled_types::K8sDevicePluginsSettings;
 use bottlerocket_modeled_types::KubernetesEvictionKey;
 use bottlerocket_modeled_types::KubernetesMemoryManagerPolicy;
 use bottlerocket_modeled_types::KubernetesMemoryReservation;
@@ -99,4 +101,6 @@ pub struct KubernetesSettingsV1 {
     hostname_override_source: KubernetesHostnameOverrideSource,
     // Generated in `k8s-1.25+` variants only
     seccomp_default: bool,
+    #[cfg(feature = "nvidia-device-plugin")]
+    device_plugins: K8sDevicePluginsSettings,
 }

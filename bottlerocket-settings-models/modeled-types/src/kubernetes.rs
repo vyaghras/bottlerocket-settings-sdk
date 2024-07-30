@@ -5,6 +5,7 @@ use lazy_static::lazy_static;
 use regex::Regex;
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 // Just need serde's Error in scope to get its trait methods
+use bottlerocket_model_derive::model;
 use serde::de::Error as _;
 use serde_json::Value;
 use snafu::{ensure, ResultExt};
@@ -1438,5 +1439,77 @@ mod test_hostname_override_source {
         for err in &["", "invalid", &"a".repeat(64)] {
             KubernetesHostnameOverrideSource::try_from(*err).unwrap_err();
         }
+    }
+}
+
+// =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
+// Define the DevicePlugin struct
+#[model(impl_default = true)]
+pub struct K8sDevicePluginsSettings {
+    nvidia: NvidiaDevicePluginSettings,
+}
+
+/// NvidiaRuntimeSettings contains the container runtime settings for Nvidia gpu.
+#[model(impl_default = true)]
+pub struct NvidiaDevicePluginSettings {
+    pass_device_specs: bool,
+    device_id_strategy: NvidiaDeviceIdStrategy,
+    device_list_strategy: NvidiaDeviceListStrategy,
+}
+
+#[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "kebab-case")]
+pub enum NvidiaDeviceIdStrategy {
+    Uuid,
+    Index,
+}
+
+#[derive(Debug, Clone, Eq, PartialEq, Hash, Serialize, Deserialize)]
+#[serde(rename_all = "kebab-case")]
+pub enum NvidiaDeviceListStrategy {
+    Envvar,
+    VolumeMounts,
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_serde_k8s_device_plugins() {
+        let test_json = r#"{"nvidia":{"pass-device-specs":true,"device-id-strategy":"index","device-list-strategy":"volume-mounts"}}"#;
+
+        let device_plugins: K8sDevicePluginsSettings = serde_json::from_str(test_json).unwrap();
+        assert_eq!(
+            device_plugins,
+            K8sDevicePluginsSettings {
+                nvidia: Some(NvidiaDevicePluginSettings {
+                    pass_device_specs: Some(true),
+                    device_id_strategy: Some(NvidiaDeviceIdStrategy::Index),
+                    device_list_strategy: Some(NvidiaDeviceListStrategy::VolumeMounts),
+                }),
+            }
+        );
+
+        let results = serde_json::to_string(&device_plugins).unwrap();
+        assert_eq!(results, test_json);
+    }
+
+    #[test]
+    fn test_serde_nvidia_device_plugins() {
+        let test_json = r#"{"pass-device-specs":false,"device-id-strategy":"uuid","device-list-strategy":"envvar"}"#;
+        let nvidia_device_plugins: NvidiaDevicePluginSettings =
+            serde_json::from_str(test_json).unwrap();
+        assert_eq!(
+            nvidia_device_plugins,
+            NvidiaDevicePluginSettings {
+                pass_device_specs: Some(false),
+                device_id_strategy: Some(NvidiaDeviceIdStrategy::Uuid),
+                device_list_strategy: Some(NvidiaDeviceListStrategy::Envvar),
+            }
+        );
+
+        let results = serde_json::to_string(&nvidia_device_plugins).unwrap();
+        assert_eq!(results, test_json);
     }
 }

@@ -41,6 +41,7 @@ pub use settings_extension_metrics::MetricsSettingsV1;
 pub use settings_extension_motd::MotdV1;
 pub use settings_extension_network::NetworkSettingsV1;
 pub use settings_extension_ntp::NtpSettingsV1;
+pub use settings_extension_nvidia_container_runtime::NvidiaContainerRuntimeSettingsV1;
 pub use settings_extension_oci_defaults::OciDefaultsV1;
 pub use settings_extension_oci_hooks::OciHooksSettingsV1;
 pub use settings_extension_pki::PkiSettingsV1;
