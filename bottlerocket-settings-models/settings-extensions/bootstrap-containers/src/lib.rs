@@ -1,6 +1,6 @@
 //! Settings related to bootstrap containers.
 use bottlerocket_model_derive::model;
-use bottlerocket_modeled_types::{BootstrapContainerMode, Identifier, Url, ValidBase64};
+use bottlerocket_modeled_types::{BootstrapMode, Identifier, Url, ValidBase64};
 use bottlerocket_settings_sdk::{GenerateResult, SettingsModel};
 use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use std::{collections::HashMap, convert::Infallible};
@@ -36,7 +36,7 @@ impl<'de> Deserialize<'de> for BootstrapContainersSettingsV1 {
 #[model(impl_default = true)]
 struct BootstrapContainer {
     source: Url,
-    mode: BootstrapContainerMode,
+    mode: BootstrapMode,
     user_data: ValidBase64,
     essential: bool,
 }
@@ -115,7 +115,7 @@ mod test {
                     )
                     .unwrap(),
                 ),
-                mode: Some(BootstrapContainerMode::try_from("once").unwrap()),
+                mode: Some(BootstrapMode::try_from("once").unwrap()),
                 user_data: Some(ValidBase64::try_from("dXNlcmRhdGE=").unwrap()),
                 essential: Some(true),
             },

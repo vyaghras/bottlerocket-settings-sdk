@@ -71,8 +71,8 @@ pub mod error {
         #[snafu(display("Invalid Kubernetes authentication mode '{}'", input))]
         InvalidAuthenticationMode { input: String },
 
-        #[snafu(display("Invalid bootstrap container mode '{}'", input))]
-        InvalidBootstrapContainerMode { input: String },
+        #[snafu(display("Invalid bootstrap mode '{}'", input))]
+        InvalidBootstrapMode { input: String },
 
         #[snafu(display("Given invalid cluster name '{}': {}", name, msg))]
         InvalidClusterName { name: String, msg: String },
@@ -85,6 +85,9 @@ pub mod error {
 
         #[snafu(display("Invalid Linux lockdown mode '{}'", input))]
         InvalidLockdown { input: String },
+
+        #[snafu(display("Invalid Bottlerocket API Command '{:?}'", input))]
+        InvalidCommand { input: Vec<String> },
 
         #[snafu(display("Invalid sysctl key '{}': {}", input, msg))]
         InvalidSysctlKey { input: String, msg: String },
