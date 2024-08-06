@@ -44,3 +44,6 @@ settings-extension-oci-defaults.workspace = true
 settings-extension-oci-hooks.workspace = true
 settings-extension-pki.workspace = true
 settings-extension-updates.workspace = true
+
+[lints]
+workspace = true

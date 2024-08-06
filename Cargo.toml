@@ -79,3 +79,6 @@ settings-extension-oci-defaults = { path = "./bottlerocket-settings-models/setti
 settings-extension-oci-hooks = { path = "./bottlerocket-settings-models/settings-extensions/oci-hooks", version = "0.1" }
 settings-extension-pki = { path = "./bottlerocket-settings-models/settings-extensions/pki", version = "0.1" }
 settings-extension-updates = { path = "./bottlerocket-settings-models/settings-extensions/updates", version = "0.1" }
+
+[workspace.lints.clippy]
+indexing_slicing = "deny"

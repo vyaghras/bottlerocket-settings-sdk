@@ -10,3 +10,6 @@ exclude = ["README.md"]
 
 [dependencies]
 serde = "1"
+
+[lints]
+workspace = true
