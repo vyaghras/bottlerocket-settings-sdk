@@ -31,3 +31,8 @@ skip = [
     # abi_stable is using an older version of syn
     { name = "syn", version = "1" },
 ]
+
+[bans.workspace-dependencies]
+duplicates = "deny"
+include-path-dependencies = true
+unused = "deny"
