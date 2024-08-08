@@ -24,3 +24,6 @@ serde_plain = "1"
 snafu = "0.8"
 url = "2"
 x509-parser = "0.16"
+
+[lints]
+workspace = true

@@ -15,3 +15,6 @@ authors = [
 snafu = "0.8"
 toml = "0.8"
 walkdir = "2"
+
+[lints]
+workspace = true

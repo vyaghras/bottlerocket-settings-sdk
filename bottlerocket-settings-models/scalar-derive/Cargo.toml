@@ -20,3 +20,6 @@ bottlerocket-scalar.workspace = true
 serde = { version = "1", features = ["derive"] }
 serde_plain = "1"
 syn = { version = "2", default-features = false, features = ["full", "parsing", "printing", "proc-macro", "visit-mut"] }
+
+[lints]
+workspace = true

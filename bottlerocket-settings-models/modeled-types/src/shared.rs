@@ -550,7 +550,7 @@ impl TryFrom<FriendlyVersion> for semver::Version {
     fn try_from(input: FriendlyVersion) -> Result<semver::Version, Self::Error> {
         // If the string begins with a 'v', skip it before conversion
         let version = if input.inner.starts_with('v') {
-            &input.inner[1..]
+            input.inner.get(1..).unwrap_or_default()
         } else {
             &input.inner
         };

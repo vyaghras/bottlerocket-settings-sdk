@@ -23,3 +23,6 @@ syn = { version = "2", default-features = false, features = ["full", "parsing", 
 [dev-dependencies]
 anyhow = "1"
 bottlerocket-settings-sdk.workspace = true
+
+[lints]
+workspace = true
