@@ -12,9 +12,9 @@ authors = [
 ]
 
 [dependencies]
-snafu = "0.8"
-toml = "0.8"
-walkdir = "2"
+snafu.workspace = true
+toml.workspace = true
+walkdir.workspace = true
 
 [lints]
 workspace = true

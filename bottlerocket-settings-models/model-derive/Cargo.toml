@@ -13,9 +13,9 @@ path = "src/lib.rs"
 proc-macro = true
 
 [dependencies]
-darling = "0.20"
-quote = "1"
-syn = { version = "2", default-features = false, features = ["full", "parsing", "printing", "proc-macro", "visit-mut"] }
+darling.workspace = true
+quote.workspace = true
+syn = { workspace = true, features = ["full", "parsing", "printing", "proc-macro", "visit-mut"] }
 
 [lints]
 workspace = true
