@@ -1308,7 +1308,9 @@ type EnvVarMap = HashMap<SingleLineString, SingleLineString>;
 pub struct CredentialProvider {
     enabled: bool,
     image_patterns: Vec<SingleLineString>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     cache_duration: Option<KubernetesDurationValue>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     environment: Option<EnvVarMap>,
 }
 
