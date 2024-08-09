@@ -7,19 +7,19 @@ repository = "https://github.com/bottlerocket-os/bottlerocket-settings-sdk"
 readme = "../README.md"
 
 [dependencies]
-argh = "0.1"
+argh.workspace = true
 bottlerocket-template-helper.workspace = true
-serde = { version = "1", features = ["derive"] }
-serde_json = "1.0"
-snafu = "0.8"
-tracing = { version = "0.1", features = ["log"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+snafu.workspace = true
+tracing = { workspace = true, features = ["log"] }
 
 [dev-dependencies]
-anyhow = "1"
-ctor = "0.2"
-env_logger = "0.10"
-log = "0.4"
-maplit = "1"
+anyhow.workspace = true
+ctor.workspace = true
+env_logger.workspace = true
+log.workspace = true
+maplit.workspace = true
 
 [features]
 default = ["extension", "proto1"]
