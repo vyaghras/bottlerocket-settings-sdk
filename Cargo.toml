@@ -83,7 +83,7 @@ settings-extension-updates = { path = "./bottlerocket-settings-models/settings-e
 abi_stable = "0.11.3"
 anyhow = "1"
 argh = "0.1"
-base64 = "0.21"
+base64 = "0.22"
 ctor = "0.2"
 darling = "0.20"
 env_logger = "0.11"
