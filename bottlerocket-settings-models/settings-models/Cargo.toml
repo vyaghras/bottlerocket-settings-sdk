@@ -11,7 +11,7 @@ exclude = ["README.md"]
 [features]
 # With the 'nvidia-device-plugin' feature enabled, the compilation
 # includes NVIDIA GPU-related code, for instance, NvidiaDevicePluginSettings.
-nvidia-device-plugin = []
+nvidia-device-plugin = ["settings-extension-kubernetes/nvidia-device-plugin"]
 
 [dependencies]
 libc.workspace = true
@@ -35,6 +35,7 @@ settings-extension-dns.workspace = true
 settings-extension-ecs.workspace = true
 settings-extension-host-containers.workspace = true
 settings-extension-kernel.workspace = true
+settings-extension-kubernetes.workspace = true
 settings-extension-metrics.workspace = true
 settings-extension-motd.workspace = true
 settings-extension-network.workspace = true
