@@ -5,6 +5,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2024-08-14
+
+## Model Changes
+
+### Added
+
+- Added the nvidia-container-runtime settings extension ([#43])
+- Added optional nvidia device-plugins settings to kubernetes model ([#43])
+
+### Changed
+
+- Skipped serializing credential provider fields if they are None ([#51])
+- Moved kubernetes models to a kubernetes settings extension ([#53])
+- Updated dependencies ([#50], [#47])
+
+[#43]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/pull/43
+[#47]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/pull/47
+[#50]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/pull/50
+[#51]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/pull/51
+[#53]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/pull/53
+
+[0.3.0]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/compare/bottlerocket-settings-models-v0.3.0...bottlerocket-settings-models-v0.2.0
+
 ## [0.2.0] - 2024-07-29
 
 ### Changed
