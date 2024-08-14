@@ -15,7 +15,6 @@ settings structures that helpfully validate inputs on deserialize.
 */
 
 mod boot;
-mod kubernetes;
 
 // Expose types for creating new settings structs
 pub use bottlerocket_model_derive as model_derive;
@@ -26,23 +25,23 @@ pub use bottlerocket_string_impls_for as string_impls_for;
 
 // Expose common settings structs
 pub use crate::boot::BootSettingsV1;
-pub use crate::kubernetes::KubernetesSettingsV1;
-pub use settings_extension_autoscaling::AutoScalingSettingsV1;
-pub use settings_extension_aws::AwsSettingsV1;
-pub use settings_extension_bootstrap_containers::BootstrapContainersSettingsV1;
-pub use settings_extension_cloudformation::CloudFormationSettingsV1;
-pub use settings_extension_container_registry::RegistrySettingsV1;
-pub use settings_extension_container_runtime::ContainerRuntimeSettingsV1;
-pub use settings_extension_dns::DnsSettingsV1;
-pub use settings_extension_ecs::ECSSettingsV1;
-pub use settings_extension_host_containers::HostContainersSettingsV1;
-pub use settings_extension_kernel::KernelSettingsV1;
-pub use settings_extension_metrics::MetricsSettingsV1;
-pub use settings_extension_motd::MotdV1;
-pub use settings_extension_network::NetworkSettingsV1;
-pub use settings_extension_ntp::NtpSettingsV1;
-pub use settings_extension_nvidia_container_runtime::NvidiaContainerRuntimeSettingsV1;
-pub use settings_extension_oci_defaults::OciDefaultsV1;
-pub use settings_extension_oci_hooks::OciHooksSettingsV1;
-pub use settings_extension_pki::PkiSettingsV1;
-pub use settings_extension_updates::UpdatesSettingsV1;
+pub use settings_extension_autoscaling::{self, AutoScalingSettingsV1};
+pub use settings_extension_aws::{self, AwsSettingsV1};
+pub use settings_extension_bootstrap_containers::{self, BootstrapContainersSettingsV1};
+pub use settings_extension_cloudformation::{self, CloudFormationSettingsV1};
+pub use settings_extension_container_registry::{self, RegistrySettingsV1};
+pub use settings_extension_container_runtime::{self, ContainerRuntimeSettingsV1};
+pub use settings_extension_dns::{self, DnsSettingsV1};
+pub use settings_extension_ecs::{self, ECSSettingsV1};
+pub use settings_extension_host_containers::{self, HostContainersSettingsV1};
+pub use settings_extension_kernel::{self, KernelSettingsV1};
+pub use settings_extension_kubernetes::{self, KubernetesSettingsV1};
+pub use settings_extension_metrics::{self, MetricsSettingsV1};
+pub use settings_extension_motd::{self, MotdV1};
+pub use settings_extension_network::{self, NetworkSettingsV1};
+pub use settings_extension_ntp::{self, NtpSettingsV1};
+pub use settings_extension_nvidia_container_runtime::{self, NvidiaContainerRuntimeSettingsV1};
+pub use settings_extension_oci_defaults::{self, OciDefaultsV1};
+pub use settings_extension_oci_hooks::{self, OciHooksSettingsV1};
+pub use settings_extension_pki::{self, PkiSettingsV1};
+pub use settings_extension_updates::{self, UpdatesSettingsV1};
