@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+- See [unreleased changes here]
+
+[unreleased changes here]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/compare/bottlerocket-settings-models-v0.4.0...HEAD
+
+## [0.4.0] - 2024-09-04
+
+## Model Changes
+
+### Added
+
+- Added the bootstrap-commands settings extension and related shared models ([#46])
+
+### Changed
+
+- Changed `bottlerocket-modeled-types::BootstrapContainerMode` to `bottlerocket-modeled-types::BootstrapMode` ([#46])
+
+[#46]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/pull/46
+
+[0.4.0]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/compare/bottlerocket-settings-models-v0.4.0...bottlerocket-settings-models-v0.3.0
+
 ## [0.3.0] - 2024-08-14
 
 ## Model Changes
