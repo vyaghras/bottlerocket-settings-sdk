@@ -27,6 +27,7 @@ toml.workspace = true
 # settings extensions
 settings-extension-autoscaling.workspace = true
 settings-extension-aws.workspace = true
+settings-extension-bootstrap-commands.workspace = true
 settings-extension-bootstrap-containers.workspace = true
 settings-extension-cloudformation.workspace = true
 settings-extension-container-registry.workspace = true

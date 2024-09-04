@@ -385,7 +385,7 @@ mod test_etc_hosts_entries {
 /// character in user-facing identifiers. It stores the original form and makes it accessible
 /// through standard traits. Its purpose is to validate input for identifiers like container names
 /// that might be used to create files/directories.
-#[derive(Debug, Clone, Eq, PartialEq, Hash)]
+#[derive(Debug, Clone, Eq, PartialEq, Hash, Ord, PartialOrd)]
 pub struct Identifier {
     inner: String,
 }
@@ -945,50 +945,125 @@ string_impls_for!(Lockdown, "Lockdown");
 
 // =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
 
+/// ApiclientCommand represents a valid Bootstrap Command. It stores the command as a vector of
+/// strings and ensures that the first argument is apiclient.
+#[derive(Debug, Clone, Eq, PartialEq, Hash, Default, Serialize)]
+pub struct ApiclientCommand(Vec<String>);
+
+impl ApiclientCommand {
+    pub fn get_command_and_args(&self) -> (&str, &[String]) {
+        self.0
+            .split_first()
+            .map(|(command, rest)| (command.as_str(), rest))
+            .unwrap_or_default()
+    }
+}
+
+// Custom deserializer added to enforce rules to make sure the command is valid.
+impl<'de> serde::Deserialize<'de> for ApiclientCommand {
+    fn deserialize<D>(deserializer: D) -> std::result::Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        let original: Vec<String> = serde::Deserialize::deserialize(deserializer)?;
+        Self::try_from(original).map_err(|e| {
+            <D::Error as serde::de::Error>::custom(format!(
+                "Unable to deserialize into ApiclientCommand: {}",
+                e
+            ))
+        })
+    }
+}
+
+impl TryFrom<Vec<String>> for ApiclientCommand {
+    type Error = error::Error;
+
+    fn try_from(input: Vec<String>) -> std::result::Result<Self, error::Error> {
+        let first_word = input.first().map(String::as_str);
+        ensure!(
+            matches!(first_word, Some("apiclient")),
+            error::InvalidCommandSnafu { input },
+        );
+
+        Ok(ApiclientCommand(input))
+    }
+}
+
+#[cfg(test)]
+mod test_valid_apiclient_command {
+    use super::ApiclientCommand;
+    use std::convert::TryFrom;
+
+    #[test]
+    fn valid_apiclient_command() {
+        assert!(ApiclientCommand::try_from(vec![
+            "apiclient".to_string(),
+            "set".to_string(),
+            "motd=helloworld".to_string()
+        ])
+        .is_ok());
+    }
+
+    #[test]
+    fn empty_apiclient_command() {
+        assert!(ApiclientCommand::try_from(Vec::new()).is_err());
+    }
+
+    #[test]
+    fn invalid_apiclient_command() {
+        assert!(ApiclientCommand::try_from(vec![
+            "/usr/bin/touch".to_string(),
+            "helloworld".to_string()
+        ])
+        .is_err());
+    }
+}
+
+// =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
 #[derive(Debug, Clone, Eq, PartialEq, Hash)]
-pub struct BootstrapContainerMode {
+pub struct BootstrapMode {
     inner: String,
 }
 
-impl TryFrom<&str> for BootstrapContainerMode {
+impl TryFrom<&str> for BootstrapMode {
     type Error = error::Error;
 
     fn try_from(input: &str) -> Result<Self, error::Error> {
         ensure!(
             matches!(input, "off" | "once" | "always"),
-            error::InvalidBootstrapContainerModeSnafu { input }
+            error::InvalidBootstrapModeSnafu { input }
         );
-        Ok(BootstrapContainerMode {
+        Ok(BootstrapMode {
             inner: input.to_string(),
         })
     }
 }
 
-impl Default for BootstrapContainerMode {
+impl Default for BootstrapMode {
     fn default() -> Self {
-        BootstrapContainerMode {
+        BootstrapMode {
             inner: "off".to_string(),
         }
     }
 }
 
-string_impls_for!(BootstrapContainerMode, "BootstrapContainerMode");
+string_impls_for!(BootstrapMode, "BootstrapMode");
 
 #[cfg(test)]
 mod test_valid_container_mode {
-    use super::BootstrapContainerMode;
+    use super::BootstrapMode;
     use std::convert::TryFrom;
 
     #[test]
     fn valid_container_mode() {
         for ok in &["off", "once", "always"] {
-            assert!(BootstrapContainerMode::try_from(*ok).is_ok());
+            assert!(BootstrapMode::try_from(*ok).is_ok());
         }
     }
 
     #[test]
     fn invalid_container_mode() {
-        assert!(BootstrapContainerMode::try_from("invalid").is_err());
+        assert!(BootstrapMode::try_from("invalid").is_err());
     }
 }
 

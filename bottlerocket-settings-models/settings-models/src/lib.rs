@@ -27,6 +27,7 @@ pub use bottlerocket_string_impls_for as string_impls_for;
 pub use crate::boot::BootSettingsV1;
 pub use settings_extension_autoscaling::{self, AutoScalingSettingsV1};
 pub use settings_extension_aws::{self, AwsSettingsV1};
+pub use settings_extension_bootstrap_commands::{self, BootstrapCommandsSettingsV1};
 pub use settings_extension_bootstrap_containers::{self, BootstrapContainersSettingsV1};
 pub use settings_extension_cloudformation::{self, CloudFormationSettingsV1};
 pub use settings_extension_container_registry::{self, RegistrySettingsV1};

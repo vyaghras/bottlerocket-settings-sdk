@@ -21,6 +21,7 @@ members = [
     # These will eventually live in the kit workspaces that own the related software
     "bottlerocket-settings-models/settings-extensions/autoscaling",
     "bottlerocket-settings-models/settings-extensions/aws",
+    "bottlerocket-settings-models/settings-extensions/bootstrap-commands",
     "bottlerocket-settings-models/settings-extensions/bootstrap-containers",
     "bottlerocket-settings-models/settings-extensions/cloudformation",
     "bottlerocket-settings-models/settings-extensions/container-registry",
@@ -63,6 +64,7 @@ bottlerocket-string-impls-for = { path = "./bottlerocket-settings-models/string-
 ## Settings Extensions
 settings-extension-autoscaling = { path = "./bottlerocket-settings-models/settings-extensions/autoscaling", version = "0.1" }
 settings-extension-aws = { path = "./bottlerocket-settings-models/settings-extensions/aws", version = "0.1" }
+settings-extension-bootstrap-commands = { path = "./bottlerocket-settings-models/settings-extensions/bootstrap-commands", version = "0.1" }
 settings-extension-bootstrap-containers = { path = "./bottlerocket-settings-models/settings-extensions/bootstrap-containers", version = "0.1" }
 settings-extension-cloudformation = { path = "./bottlerocket-settings-models/settings-extensions/cloudformation", version = "0.1" }
 settings-extension-container-registry = { path = "./bottlerocket-settings-models/settings-extensions/container-registry", version = "0.1" }
