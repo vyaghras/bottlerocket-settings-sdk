@@ -1445,11 +1445,6 @@ mod test_hostname_override_source {
 }
 
 // =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=   =^..^=
-// Define the DevicePlugin struct
-#[model(impl_default = true)]
-pub struct K8sDevicePluginsSettings {
-    nvidia: NvidiaDevicePluginSettings,
-}
 
 /// NvidiaRuntimeSettings contains the container runtime settings for Nvidia gpu.
 #[model(impl_default = true)]
@@ -1476,26 +1471,6 @@ pub enum NvidiaDeviceListStrategy {
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn test_serde_k8s_device_plugins() {
-        let test_json = r#"{"nvidia":{"pass-device-specs":true,"device-id-strategy":"index","device-list-strategy":"volume-mounts"}}"#;
-
-        let device_plugins: K8sDevicePluginsSettings = serde_json::from_str(test_json).unwrap();
-        assert_eq!(
-            device_plugins,
-            K8sDevicePluginsSettings {
-                nvidia: Some(NvidiaDevicePluginSettings {
-                    pass_device_specs: Some(true),
-                    device_id_strategy: Some(NvidiaDeviceIdStrategy::Index),
-                    device_list_strategy: Some(NvidiaDeviceListStrategy::VolumeMounts),
-                }),
-            }
-        );
-
-        let results = serde_json::to_string(&device_plugins).unwrap();
-        assert_eq!(results, test_json);
-    }
 
     #[test]
     fn test_serde_nvidia_device_plugins() {
