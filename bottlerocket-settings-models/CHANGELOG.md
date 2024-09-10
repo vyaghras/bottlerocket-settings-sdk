@@ -9,7 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - See [unreleased changes here]
 
-[unreleased changes here]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/compare/bottlerocket-settings-models-v0.4.0...HEAD
+[unreleased changes here]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/compare/bottlerocket-settings-models-v0.5.0...HEAD
+
+## [0.5.0] - 2024-09-10
+
+## Model Changes
+
+### Added
+
+- Added kubernetes device plugins settings extension ([#60])
+
+### Changed
+
+- Drop `nvidia-device-plugin` cargo feature ([#60])
+
+[#60]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/pull/60
+
+[0.5.0]: https://github.com/bottlerocket-os/bottlerocket-settings-sdk/compare/bottlerocket-settings-models-v0.5.0...bottlerocket-settings-models-v0.4.0
 
 ## [0.4.0] - 2024-09-04
 
