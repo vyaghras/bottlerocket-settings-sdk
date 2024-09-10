@@ -1,7 +1,5 @@
 //! Modeled types for creating Kubernetes settings.
 use bottlerocket_model_derive::model;
-#[cfg(feature = "nvidia-device-plugin")]
-use bottlerocket_modeled_types::K8sDevicePluginsSettings;
 use bottlerocket_modeled_types::{
     CpuManagerPolicy, CredentialProvider, DNSDomain, Identifier, IntegerPercent, KernelCpuSetValue,
     KubernetesAuthenticationMode, KubernetesBootstrapToken, KubernetesCPUManagerPolicyOption,
@@ -96,8 +94,6 @@ pub struct KubernetesSettingsV1 {
     hostname_override_source: KubernetesHostnameOverrideSource,
     // Generated in `k8s-1.25+` variants only
     seccomp_default: bool,
-    #[cfg(feature = "nvidia-device-plugin")]
-    device_plugins: K8sDevicePluginsSettings,
 }
 
 type Result<T> = std::result::Result<T, Infallible>;
@@ -195,8 +191,6 @@ mod test {
                 hostname_override: None,
                 hostname_override_source: None,
                 seccomp_default: None,
-                #[cfg(feature = "nvidia-device-plugin")]
-                device_plugins: None,
             })
         );
     }
