@@ -41,6 +41,20 @@ struct BootstrapContainer {
     essential: bool,
 }
 
+#[model(impl_default = true)]
+pub struct BootstrapContainersSettingsV2 {
+    pub default: Url, // Change this to Url
+    pub definitions: HashMap<Identifier, BootstrapContainerV2>,
+}
+
+#[model(impl_default = true)]
+struct BootstrapContainerV2 {
+    source: Option<Url>,
+    mode: BootstrapMode,
+    user_data: ValidBase64,
+    essential: bool,
+}
+
 type Result<T> = std::result::Result<T, Infallible>;
 
 impl SettingsModel for BootstrapContainersSettingsV1 {
@@ -67,6 +81,34 @@ impl SettingsModel for BootstrapContainersSettingsV1 {
 
     fn validate(_value: Self, _validated_settings: Option<serde_json::Value>) -> Result<()> {
         // Validate anything that parses as BootstrapContainersSettingsV1.
+        Ok(())
+    }
+}
+
+impl SettingsModel for BootstrapContainersSettingsV2 {
+    type PartialKind = Self;
+    type ErrorKind = Infallible;
+
+    fn get_version() -> &'static str {
+        "v2"
+    }
+
+    fn set(_current_value: Option<Self>, _target: Self) -> Result<()> {
+        // Set anything that parses as BootstrapContainersSettingsV2.
+        Ok(())
+    }
+
+    fn generate(
+        existing_partial: Option<Self::PartialKind>,
+        _dependent_settings: Option<serde_json::Value>,
+    ) -> Result<GenerateResult<Self::PartialKind, Self>> {
+        Ok(GenerateResult::Complete(
+            existing_partial.unwrap_or_default(),
+        ))
+    }
+
+    fn validate(_value: Self, _validated_settings: Option<serde_json::Value>) -> Result<()> {
+        // Validate anything that parses as BootstrapContainersSettingsV2.
         Ok(())
     }
 }
