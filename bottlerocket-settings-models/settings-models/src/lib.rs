@@ -29,6 +29,7 @@ pub use settings_extension_autoscaling::{self, AutoScalingSettingsV1};
 pub use settings_extension_aws::{self, AwsSettingsV1};
 pub use settings_extension_bootstrap_commands::{self, BootstrapCommandsSettingsV1};
 pub use settings_extension_bootstrap_containers::{self, BootstrapContainersSettingsV1};
+pub use settings_extension_bottlerocket_bootstrap::{self, BottlerocketBootstrapSettingsV1};
 pub use settings_extension_cloudformation::{self, CloudFormationSettingsV1};
 pub use settings_extension_container_registry::{self, RegistrySettingsV1};
 pub use settings_extension_container_runtime::{self, ContainerRuntimeSettingsV1};

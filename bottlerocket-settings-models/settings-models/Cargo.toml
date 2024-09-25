@@ -26,6 +26,7 @@ settings-extension-autoscaling.workspace = true
 settings-extension-aws.workspace = true
 settings-extension-bootstrap-commands.workspace = true
 settings-extension-bootstrap-containers.workspace = true
+settings-extension-bottlerocket-bootstrap.workspace = true
 settings-extension-cloudformation.workspace = true
 settings-extension-container-registry.workspace = true
 settings-extension-container-runtime.workspace = true

@@ -23,6 +23,7 @@ members = [
     "bottlerocket-settings-models/settings-extensions/aws",
     "bottlerocket-settings-models/settings-extensions/bootstrap-commands",
     "bottlerocket-settings-models/settings-extensions/bootstrap-containers",
+    "bottlerocket-settings-models/settings-extensions/bottlerocket-bootstrap",
     "bottlerocket-settings-models/settings-extensions/cloudformation",
     "bottlerocket-settings-models/settings-extensions/container-registry",
     "bottlerocket-settings-models/settings-extensions/container-runtime",
@@ -67,6 +68,7 @@ settings-extension-autoscaling = { path = "./bottlerocket-settings-models/settin
 settings-extension-aws = { path = "./bottlerocket-settings-models/settings-extensions/aws", version = "0.1" }
 settings-extension-bootstrap-commands = { path = "./bottlerocket-settings-models/settings-extensions/bootstrap-commands", version = "0.1" }
 settings-extension-bootstrap-containers = { path = "./bottlerocket-settings-models/settings-extensions/bootstrap-containers", version = "0.1" }
+settings-extension-bottlerocket-bootstrap = { path = "./bottlerocket-settings-models/settings-extensions/bottlerocket-bootstrap", version = "0.1" }
 settings-extension-cloudformation = { path = "./bottlerocket-settings-models/settings-extensions/cloudformation", version = "0.1" }
 settings-extension-container-registry = { path = "./bottlerocket-settings-models/settings-extensions/container-registry", version = "0.1" }
 settings-extension-container-runtime = { path = "./bottlerocket-settings-models/settings-extensions/container-runtime", version = "0.1" }
